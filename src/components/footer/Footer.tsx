@@ -1,38 +1,34 @@
-import { GithubLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
-import { ReactNode, useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
+import { ReactNode, useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react";
 
-function Footer() {
- 
-    let data = new Date().getFullYear()
-  
-    const {usuario} = useContext(AuthContext)
+function Footer(){
+
+    const { usuario } = useContext(AuthContext);
 
     let component: ReactNode
 
-    if(usuario.token !== ""){
-      component = (
-        <div className="flex justify-center bg-indigo-900 text-white">
-        <div className="container flex flex-col items-center py-4">
-          <p className='text-xl font-bold'>Blog pessoal Dani | Copyright: {data} </p>
-          <p className='text-lg'>Acesse minhas redes sociais</p>
-          <div className='flex gap-2'>
-            <LinkedinLogo size={48} weight='bold' />
-            <InstagramLogo size={48} weight='bold' />
-            <GithubLogo size={48} weight='bold' />
-          </div>
-        </div>
-      </div>
-      )
+    if (usuario.token !== ""){
+        component = (
+            <section className="flex flex-col items-center bg-indigo-900 text-white py-3">
+                <h2>Blog Pessoal Michel Cavalcante | Copyright &copy;</h2>
+                <p>Acesse minhas redes sociais</p>
+                <div className="flex flex-row gap-2">
+                    <a href="https://www.linkedin.com/in/dev-cavalcante/" target="_blank"><LinkedinLogo size={48} weight='bold' /></a>
+                    <a href="https://www.instagram.com/_michel.cavalcante/" target="_blank"><InstagramLogo size={48} weight='bold' /></a>
+                    <a href="https://github.com/mcavalcantedesouza" target="_blank"><GithubLogo size={48} weight='bold' /></a>
+                </div>
+            </section>
+        )
     }
 
 
-  return (
-    <>
-        {component}
 
-    </>
-  )
+    return (
+        <>
+           { component } 
+        </>
+    )
 }
 
-export default Footer
+export default Footer;

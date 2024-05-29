@@ -15,7 +15,7 @@ function Navbar() {
             navigate('/login')
         }
 
-        let navbarComponent
+        let navbarComponent: any;
 
         if(usuario.token !== "") {
         navbarComponent = (
